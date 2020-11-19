@@ -1,2 +1,39 @@
 server:
   port: 9090
+
+wlw:
+  url: http://cloud.iot198.com/WNIOT
+  scheduleFlag: false
+
+spring:
+
+  datasource:
+    url: jdbc:mysql://localhost/kami?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 0
+      max-file-size: 100MB
+      max-request-size: 500MB
+  mvc:
+    static-path-pattern:
+      static-locations: classpath:/static/
+
+#mybaits-plus配置，修改主键类型，mapper.xml、type 别名等
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.kami.mall.entity.DO
+#mybatis:
+#  mapper-locations: classpath:/mapper/*Mapper.xml
+#  type-aliases-package: com.kami.mall.entity.DO
+
+logging:
+  level:
+    com.kami.mall.businesscenter.mapper: info
+    root: info
