@@ -34,4 +34,157 @@
     delete from kami_order
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
+  <insert id="addOrder" parameterType="com.kami.mall.entity.DO.Order">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into kami_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="goodsNum != null">
+        goods_num,
+      </if>
+      <if test="businessId != null">
+        business_id,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="orderNumber != null">
+        order_number,
+      </if>
+      <if test="logisticsCompany != null">
+        logistics_company,
+      </if>
+      <if test="logisticsNumber != null">
+        logistics_number,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createdTime != null ">
+        created_time,
+      </if>
+      <if test="updatedTime != null ">
+        updated_time,
+      </if>
+      <if test="userId != null ">
+        user_id,
+      </if>
+      <if test="status != null ">
+        status,
+      </if>
+      <if test="createdBy != null ">
+        created_by,
+      </if>
+      <if test="updatedBy != null ">
+        updated_by,
+      </if>
+      <if test="deleteFlag != null ">
+        delete_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId},
+      </if>
+      <if test="goodsNum != null">
+        #{goodsNum},
+      </if>
+      <if test="businessId != null">
+        #{businessId},
+      </if>
+      <if test="addressId != null">
+        #{addressId},
+      </if>
+      <if test="orderNumber != null">
+        #{orderNumber},
+      </if>
+      <if test="logisticsCompany != null">
+        #{logisticsCompany},
+      </if>
+      <if test="logisticsNumber != null">
+        #{logisticsNumber},
+      </if>
+      <if test="remark != null">
+        #{remark},
+      </if>
+      <if test="createdTime != null ">
+        #{createdTime},
+      </if>
+      <if test="updatedTime != null ">
+        #{updatedTime},
+      </if>
+      <if test="userId != null ">
+        #{userId},
+      </if>
+      <if test="status != null ">
+        #{status},
+      </if>
+      <if test="createdBy != null ">
+        created_by,
+      </if>
+      <if test="updatedBy != null ">
+        #{updatedBy},
+      </if>
+      <if test="deleteFlag != null ">
+        #{deleteFlag},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateOrder" parameterType="com.kami.mall.entity.DO.Order">
+    update kami_order
+    <set>
+      <if test="goodsId != null">
+        goods_id =#{goodsId},
+      </if>
+      <if test="goodsNum != null">
+        goods_num =#{goodsNum},
+      </if>
+      <if test="businessId != null">
+        business_id =#{businessId},
+      </if>
+      <if test="addressId != null">
+        address_id=#{addressId},
+      </if>
+      <if test="orderNumber != null">
+        order_number=#{orderNumber},
+      </if>
+      <if test="logisticsCompany != null">
+        logistics_company=#{logisticsCompany},
+      </if>
+      <if test="logisticsNumber != null">
+        logistics_number=#{logisticsNumber},
+      </if>
+      <if test="remark != null">
+        remark=#{remark},
+      </if>
+      <if test="createdTime != null ">
+        created_time=#{createdTime},
+      </if>
+      <if test="updatedTime != null ">
+        updated_time=#{updatedTime},
+      </if>
+      <if test="userId != null ">
+        user_id=#{userId},
+      </if>
+      <if test="status != null ">
+        status=#{status},
+      </if>
+      <if test="createdBy != null ">
+        created_by=created_by,
+      </if>
+      <if test="updatedBy != null ">
+        updated_by=#{updatedBy},
+      </if>
+      <if test="deleteFlag != null ">
+        delete_flag=#{deleteFlag},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
 </mapper>
