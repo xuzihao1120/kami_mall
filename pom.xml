@@ -27,7 +27,7 @@
         <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
         <commons-lang.version>2.6</commons-lang.version>
         <io.springfox.version>2.7.0</io.springfox.version>
-        <mysql-connetcor.version>8.0.13</mysql-connetcor.version>
+        <mysql-connetcor.version>8.0.28</mysql-connetcor.version>
         <mybatis.mapper.version>3.2.2</mybatis.mapper.version>
         <com.baomidou.version>3.0.7.1</com.baomidou.version>
         <pagehelper.version>3.7.4</pagehelper.version>
